@@ -1,0 +1,1926 @@
+/* =========================================
+   ROOT VARIABLES & RESET
+========================================= */
+:root {
+  --dark-blue: #00296b;
+  --blue: #003f88;
+  --light-blue: #00509d;
+  --white: #ffffff;
+  --font: "Poppins", sans-serif;
+}
+
+/* basic reset + box sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--white);
+  overflow-x: hidden;
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+.hero {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(
+      rgba(4, 9, 30, 0.7),
+      rgba(4, 9, 30, 0.7)
+    ),
+    url(../assets/images/2023-graduates.webp);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: var(--dark-blue);
+  position: relative; /* same as your original */
+  z-index: 3;
+}
+
+header img {
+  width: 60px;
+  height: auto;
+  display: block;
+}
+
+/* Desktop nav */
+.nav-links {
+  flex: 1;
+  text-align: right;
+  transition: right 0.5s ease;
+}
+
+.nav-links ul {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links ul li {
+  list-style: none;
+  display: inline-block;
+  position: relative;
+}
+
+.nav-links ul li a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-links ul li::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: var(--light-blue);
+  display: block;
+  margin: auto;
+  transition: width 0.5s ease;
+}
+
+.nav-links ul li:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   HEADER BUTTONS (NEW HTML STRUCTURE)
+========================================= */
+
+/* hidden by default on desktop */
+header button {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+  z-index: 4;
+}
+
+/* accessibility focus */
+header button:focus {
+  outline: 2px solid var(--light-blue);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   HERO TEXT
+========================================= */
+.text-box {
+  width: 90%;
+  color: var(--white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.text-box h1 {
+  font-size: clamp(2rem, 4vw, 4.5rem);
+}
+
+.text-box p {
+  margin: 10px 0 40px;
+  font-size: 15px;
+  color: var(--white);
+  line-height: 1.6;
+}
+
+.hero-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--white);
+  border: 1px solid var(--white);
+  padding: 12px 32px;
+  font-size: 13px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.hero-btn:hover {
+  border: 1px solid var(--light-blue);
+  background: var(--light-blue);
+  transition: 0.5s;
+}
+
+/* =========================================
+   MOBILE STYLES
+========================================= */
+@media (max-width: 700px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  /* stack nav items vertically */
+  .nav-links ul li {
+    display: block;
+  }
+
+  .nav-links ul li a {
+    padding-left: 2rem;
+  }
+
+  /* slide-in nav */
+  .nav-links {
+    position: absolute;
+    background: var(--light-blue);
+    height: 100vh;
+    width: 60%;
+    top: 0;
+    right: -60%; /* hidden by default */
+    text-align: left;
+    z-index: 2;
+    transition: right 0.4s ease;
+    padding-top: 2.5rem;
+  }
+
+  .nav-links ul {
+    margin-top: 2rem;
+    padding-left: 0;
+  }
+
+  /* show header buttons on mobile */
+  header button {
+    display: inline-block;
+  }
+
+  /* close button inside menu */
+  #closeMenu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  /* open/close active state */
+  .nav-links.active {
+    right: 0;
+  }
+}
+
+/* =========================================
+   HELPER CLASS (for JS toggle)
+========================================= */
+.nav-open {
+  right: 0 !important;
+}
+
+/* ABOUT SECTION */
+.about {
+background-color: var(--white);
+color: var(--dark-blue);
+padding: 5rem 2rem;
+}
+
+.about-container {
+max-width: 1200px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 3rem;
+flex-wrap: wrap; /* ensures good stacking on smaller screens */
+}
+
+.about-image {
+flex: 1 1 40%;
+text-align: center;
+}
+
+.about-image img {
+width: 100%;
+max-width: 450px;
+border-radius: 1.5rem;
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.about-text {
+flex: 1 1 50%;
+}
+
+.about-text h2 {
+font-size: clamp(1.8rem, 4vw, 2.8rem);
+margin-bottom: 1rem;
+color: var(--blue);
+}
+
+.about-text p {
+line-height: 1.8;
+margin-bottom: 2rem;
+color: #333;
+}
+
+.about-btn {
+display: inline-block;
+text-decoration: none;
+color: var(--white);
+background: var(--light-blue);
+border: none;
+padding: 12px 30px;
+border-radius: 30px;
+font-size: 14px;
+font-weight: 500;
+transition: background 0.3s ease;
+}
+
+.about-btn:hover {
+background: var(--blue);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+.about-container {
+flex-direction: column;
+text-align: center;
+}
+
+.about-text {
+flex: 1 1 100%;
+}
+
+.about-image img {
+max-width: 320px;
+}
+}
+
+/* ACADEMICS SECTION (Modern Version) */
+.academics {
+background: linear-gradient(to bottom right, var(--blue), var(--dark-blue));
+color: var(--white);
+padding: 6rem 2rem;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+
+.academics::before {
+content: "";
+position: absolute;
+top: -50px;
+left: -50px;
+width: 200px;
+height: 200px;
+background: rgba(255, 255, 255, 0.05);
+border-radius: 50%;
+z-index: 0;
+}
+
+.academics::after {
+content: "";
+position: absolute;
+bottom: -80px;
+right: -80px;
+width: 250px;
+height: 250px;
+background: rgba(255, 255, 255, 0.05);
+border-radius: 50%;
+z-index: 0;
+}
+
+.academics-header {
+max-width: 700px;
+margin: 0 auto 4rem auto;
+position: relative;
+z-index: 2;
+}
+
+.academics-header h2 {
+font-size: clamp(2rem, 4vw, 3rem);
+margin-bottom: 1rem;
+font-weight: 600;
+color: var(--white);
+}
+
+.academics-header p {
+color: rgba(255, 255, 255, 0.85);
+font-size: 1rem;
+line-height: 1.8;
+}
+
+/* Cards Grid */
+.academics-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 2.5rem;
+position: relative;
+z-index: 2;
+max-width: 1100px;
+margin: auto;
+}
+
+/* Each Card */
+.academic-item {
+background: rgba(255, 255, 255, 0.08);
+border-radius: 1.2rem;
+padding: 2.5rem 1.8rem;
+transition: all 0.4s ease;
+backdrop-filter: blur(6px);
+border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.academic-item:hover {
+background: rgba(255, 255, 255, 0.15);
+transform: translateY(-8px);
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon */
+.icon-box {
+width: 70px;
+height: 70px;
+margin: 0 auto 1.5rem auto;
+background: var(--white);
+color: var(--blue);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 28px;
+transition: background 0.3s ease, color 0.3s ease;
+}
+
+.academic-item:hover .icon-box {
+background: var(--light-blue);
+color: var(--white);
+}
+
+/* Text */
+.academic-item h3 {
+font-size: 1.3rem;
+margin-bottom: 0.8rem;
+font-weight: 600;
+}
+
+.academic-item p {
+font-size: 0.95rem;
+line-height: 1.7;
+color: rgba(255, 255, 255, 0.85);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+.academics {
+padding: 4rem 1.5rem;
+}
+
+.academic-item {
+padding: 2rem 1.5rem;
+}
+}
+
+/* ==========================================================
+   STUDENT LIFE / ACHIEVEMENTS SECTION (IMPROVED)
+========================================================== */
+
+.achievements {
+  background: linear-gradient(to bottom right, #ffffff, #f8fafc);
+  color: var(--dark-blue);
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.achievements-header {
+  max-width: 750px;
+  margin: 0 auto 4rem auto;
+  position: relative;
+  z-index: 2;
+}
+
+.achievements-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.achievements-header p {
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Grid Layout */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Card Design */
+.achievement-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: #fff;
+}
+
+.achievement-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.achievement-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.achievement-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.8);
+}
+
+/* Overlay Styling */
+.achievement-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 47, 115, 0.1),
+    rgba(0, 47, 115, 0.6)
+  );
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  border-radius: 1.2rem;
+}
+
+.achievement-card:hover .achievement-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.achievement-overlay h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #fff;
+}
+
+.achievement-overlay p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Subtle Gradient Lights in Background */
+.achievements::before,
+.achievements::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  filter: blur(80px);
+}
+
+.achievements::before {
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 80, 157, 0.1);
+  top: 50px;
+  left: 10%;
+}
+
+.achievements::after {
+  width: 250px;
+  height: 250px;
+  background: rgba(0, 59, 136, 0.1);
+  bottom: 50px;
+  right: 15%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .achievement-card img {
+    height: 220px;
+  }
+
+  .achievement-overlay {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .achievement-overlay h3 {
+    font-size: 1.1rem;
+  }
+
+  .achievement-overlay p {
+    font-size: 0.9rem;
+  }
+}
+/* ===============================
+ADMISSIONS PAGE STYLING
+=============================== */
+
+/* --- HERO --- */
+.admissions-hero {
+min-height: 50vh;
+background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+url('../assets/images/admissions-banner.jpg') center/cover no-repeat;
+color: var(--white);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 0 2rem;
+}
+
+.admissions-hero h1 {
+font-size: clamp(2rem, 5vw, 3rem);
+font-weight: 600;
+margin-bottom: 0.5rem;
+}
+
+.admissions-hero p {
+max-width: 650px;
+line-height: 1.6;
+color: #f1f1f1;
+}
+
+/* --- MAIN ADMISSIONS SECTION --- */
+.admissions {
+background: #f7f9fc;
+color: var(--dark-blue);
+padding: 6rem 2rem;
+}
+
+.admissions-header {
+max-width: 800px;
+margin: 0 auto 3rem auto;
+text-align: center;
+}
+
+.admissions-header h2 {
+font-size: clamp(2rem, 4vw, 3rem);
+margin-bottom: 0.8rem;
+font-weight: 600;
+color: var(--blue);
+}
+
+.admissions-header p {
+color: #475569;
+line-height: 1.7;
+font-size: 1rem;
+}
+
+/* --- STEPS SECTION --- */
+.steps {
+max-width: 1100px;
+margin: 0 auto 3rem auto;
+list-style: none;
+display: grid;
+grid-template-columns: repeat(12, 1fr);
+gap: 1.5rem;
+padding: 0;
+}
+
+.step {
+grid-column: span 6;
+background: #ffffff;
+border-radius: 1.2rem;
+padding: 1.5rem 1.5rem 1.5rem 4.25rem;
+position: relative;
+box-shadow: 0 8px 24px rgba(2, 20, 59, 0.08);
+border: 1px solid rgba(0, 0, 0, 0.06);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:nth-child(odd) { grid-column: 1 / span 6; }
+.step:nth-child(even) { grid-column: 7 / span 6; }
+
+.step:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 30px rgba(2, 20, 59, 0.1);
+}
+
+.step-badge {
+width: 42px;
+height: 42px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(--light-blue), var(--blue));
+color: var(--white);
+display: grid;
+place-items: center;
+font-weight: 700;
+position: absolute;
+top: 1.25rem;
+left: 1.25rem;
+box-shadow: 0 6px 16px rgba(0, 80, 157, 0.35);
+font-size: 1.05rem;
+}
+
+.step-content h3 {
+font-size: 1.15rem;
+margin-bottom: 0.4rem;
+color: var(--blue);
+}
+
+.step-content p {
+color: #334155;
+line-height: 1.7;
+font-size: 0.98rem;
+}
+
+/* --- REQUIREMENTS CARDS --- */
+.reqs {
+max-width: 1100px;
+margin: 2rem auto 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+gap: 1.25rem;
+}
+
+.reqs .req-card {
+background: #ffffff;
+border-radius: 1.1rem;
+padding: 1.5rem;
+box-shadow: 0 8px 24px rgba(2, 20, 59, 0.06);
+border: 1px solid rgba(0,0,0,0.06);
+transition: transform 0.25s ease, box-shadow 0.25s ease;
+text-align: left;
+}
+
+.reqs .req-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 14px 28px rgba(2, 20, 59, 0.1);
+}
+
+.reqs .req-card i {
+font-size: 1.35rem;
+width: 42px;
+height: 42px;
+border-radius: 50%;
+display: grid;
+place-items: center;
+margin-bottom: 0.75rem;
+color: var(--white);
+background: var(--light-blue);
+}
+
+.reqs .req-card h4 {
+color: var(--blue);
+margin-bottom: 0.4rem;
+font-weight: 600;
+}
+
+.reqs .req-card ul {
+margin: 0;
+padding-left: 1.1rem;
+color: #334155;
+line-height: 1.7;
+font-size: 0.95rem;
+}
+
+/* --- CTA (Call-to-Action) --- */
+.admissions-cta {
+max-width: 1100px;
+margin: 3rem auto 0 auto;
+background: linear-gradient(135deg, var(--blue), var(--dark-blue));
+color: var(--white);
+border-radius: 1.2rem;
+padding: 1.5rem 1.25rem;
+display: grid;
+grid-template-columns: 1.5fr auto;
+align-items: center;
+gap: 1rem;
+box-shadow: 0 10px 30px rgba(0, 59, 136, 0.25);
+}
+
+.admissions-cta .cta-text h3 {
+font-size: 1.25rem;
+margin-bottom: 0.25rem;
+}
+
+.admissions-cta .cta-text p {
+color: rgba(255,255,255,0.85);
+font-size: 0.98rem;
+}
+
+/* Buttons */
+.btn {
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+text-decoration: none;
+font-weight: 600;
+border-radius: 999px;
+padding: 0.75rem 1.1rem;
+transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+white-space: nowrap;
+}
+
+.btn-solid {
+background: var(--white);
+color: var(--blue);
+box-shadow: 0 6px 16px rgba(255, 255, 255, 0.25);
+}
+
+.btn-solid:hover {
+transform: translateY(-2px);
+}
+
+.btn-outline {
+border: 2px solid rgba(255,255,255,0.85);
+color: var(--white);
+}
+
+.btn-outline:hover {
+background: rgba(255,255,255,0.15);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+.step {
+grid-column: span 12 !important;
+}
+}
+
+@media (max-width: 768px) {
+.admissions {
+padding: 4rem 1.5rem;
+}
+
+.admissions-cta {
+grid-template-columns: 1fr;
+text-align: center;
+}
+
+.cta-actions {
+display: flex;
+gap: 0.75rem;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.step {
+padding: 1.5rem;
+}
+
+.step-badge {
+position: static;
+margin-bottom: 1rem;
+}
+}
+
+/* ===============================
+BLOG / NEWS SECTION
+=============================== */
+
+.blog {
+background-color: #f7f9fc;
+color: var(--dark-blue);
+padding: 6rem 2rem;
+text-align: center;
+}
+
+.blog-header {
+max-width: 750px;
+margin: 0 auto 3rem auto;
+}
+
+.blog-header h2 {
+font-size: clamp(2rem, 4vw, 3rem);
+color: var(--blue);
+margin-bottom: 1rem;
+font-weight: 600;
+}
+
+.blog-header p {
+color: #475569;
+line-height: 1.7;
+font-size: 1rem;
+}
+
+/* Blog Grid */
+.blog-grid {
+max-width: 1200px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 2rem;
+}
+
+/* Blog Card */
+.blog-card {
+background: #ffffff;
+border-radius: 1.2rem;
+overflow: hidden;
+box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+text-align: left;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+transform: translateY(-6px);
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.blog-image img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+}
+
+/* Content */
+.blog-content {
+padding: 1.5rem;
+}
+
+.blog-meta {
+display: flex;
+gap: 1.2rem;
+color: #64748b;
+font-size: 0.85rem;
+margin-bottom: 0.75rem;
+}
+
+.blog-meta i {
+color: var(--light-blue);
+margin-right: 0.3rem;
+}
+
+.blog-content h3 {
+font-size: 1.2rem;
+margin-bottom: 0.75rem;
+font-weight: 600;
+color: var(--blue);
+}
+
+.blog-content p {
+color: #334155;
+line-height: 1.6;
+margin-bottom: 1.25rem;
+font-size: 0.95rem;
+}
+
+/* Buttons */
+.blog-content .btn-outline {
+border: 1.8px solid var(--light-blue);
+color: var(--light-blue);
+font-size: 0.9rem;
+font-weight: 500;
+padding: 0.6rem 1rem;
+}
+
+.blog-content .btn-outline:hover {
+background: var(--light-blue);
+color: var(--white);
+border-color: var(--light-blue);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+.blog {
+padding: 4rem 1.25rem;
+}
+
+.blog-image img {
+height: 180px;
+}
+
+.blog-content h3 {
+font-size: 1.1rem;
+}
+
+.blog-content p {
+font-size: 0.9rem;
+}
+}
+
+/* ==========================================================
+   CONTACT SECTION (IMPROVED & FIXED)
+========================================================== */
+
+.contact {
+  background: linear-gradient(to bottom, #ffffff, #f3f6fa);
+  color: var(--dark-blue);
+  padding: 6rem 1.5rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-header {
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+}
+
+.contact-header h2 {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: var(--blue);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.contact-header p {
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Contact layout */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Info cards */
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex: 1 1 320px;
+}
+
+.contact-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.75rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card i {
+  font-size: 1.8rem;
+  color: var(--light-blue);
+  margin-bottom: 0.75rem;
+}
+
+.contact-card h3 {
+  color: var(--blue);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.contact-card p,
+.contact-card a {
+  color: #334155;
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+/* Contact Form */
+.contact-form {
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem;
+  flex: 1 1 400px;
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.contact-form:hover {
+  transform: translateY(-3px);
+}
+
+.contact-form h3 {
+  color: var(--blue);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(2, 20, 59, 0.15);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  font-size: 0.95rem;
+  outline: none;
+  background: #f9fbfd;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--light-blue);
+  box-shadow: 0 0 0 3px rgba(0, 80, 157, 0.15);
+  background: #ffffff;
+}
+
+/* Button */
+.contact-form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  border: none;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.9rem 1.5rem;
+  cursor: pointer;
+  background: var(--light-blue);
+  color: var(--white);
+  box-shadow: 0 8px 20px rgba(0, 59, 136, 0.25);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.contact-form button:hover {
+  background: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 59, 136, 0.35);
+}
+
+.contact-form button i {
+  font-size: 1rem;
+}
+
+/* Map */
+.contact-map {
+  margin-top: 4rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  max-width: 1100px;
+  margin-inline: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact {
+    padding: 4rem 1.25rem 3rem;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  .contact-form {
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .contact-form button {
+    width: auto;
+    padding: 0.9rem 2rem;
+  }
+
+  .contact-card {
+    padding: 1.5rem;
+  }
+
+  .contact-card i {
+    font-size: 1.5rem;
+  }
+}
+
+/* ==========================================================
+   FOOTER (IMPROVED & RESPONSIVE)
+========================================================== */
+
+.footer {
+  background: linear-gradient(135deg, var(--blue), var(--dark-blue));
+  color: var(--white);
+  padding: 4rem 2rem 2rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Brand Section --- */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-brand img {
+  width: 65px;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 280px;
+}
+
+/* --- Social Icons --- */
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer-socials a:hover {
+  background: var(--white);
+  color: var(--blue);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* --- Footer Links --- */
+.footer-links h4,
+.footer-contact h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  position: relative;
+}
+
+.footer-links h4::after,
+.footer-contact h4::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--light-blue);
+  margin-top: 0.4rem;
+}
+
+.footer-links ul,
+.footer-contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links ul li a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-links ul li a:hover {
+  color: var(--white);
+  transform: translateX(4px);
+  text-decoration: none;
+}
+
+/* --- Contact Info --- */
+.footer-contact ul li {
+  margin-bottom: 0.7rem;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  line-height: 1.6;
+}
+
+.footer-contact ul li i {
+  color: var(--light-blue);
+  font-size: 1rem;
+  margin-top: 0.2rem;
+}
+
+/* --- Footer Bottom --- */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Hover Colors for Social Icons --- */
+.footer-socials a[aria-label="Facebook"]:hover {
+  background: #1877f2;
+  color: var(--white);
+}
+
+.footer-socials a[aria-label="Twitter"]:hover {
+  background: #000;
+  color: var(--white);
+}
+
+.footer-socials a[aria-label="YouTube"]:hover {
+  background: #ff0000;
+  color: var(--white);
+}
+
+/* ==========================================================
+   RESPONSIVE IMPROVEMENTS
+========================================================== */
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+    padding: 3rem 1.5rem 1.5rem;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    align-items: center;
+  }
+
+  .footer-brand img {
+    margin: 0 auto 0.75rem;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+
+  .footer-links h4::after,
+  .footer-contact h4::after {
+    margin: 0.5rem auto;
+  }
+
+  .footer-links ul li a:hover {
+    transform: none;
+  }
+
+  /* --- Center Contact Info on Mobile --- */
+  .footer-contact {
+    text-align: center;
+  }
+
+  .footer-contact ul li {
+    justify-content: center;
+    text-align: left; /* Keeps icon and text aligned neatly */
+    max-width: 320px;
+    margin: 0.5rem auto;
+  }
+
+  .footer-contact ul li i {
+    margin-right: 0.4rem;
+  }
+}
+
+/* ==========================================================
+   ADMISSIONS PAGE STYLING
+========================================================== */
+
+/* --- HERO --- */
+.admissions-hero {
+  min-height: 50vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url('../assets/images/admissions-banner.jpg') center/cover no-repeat;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.admissions-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.admissions-hero p {
+  max-width: 650px;
+  line-height: 1.6;
+  color: #f1f1f1;
+  font-size: 1rem;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* --- MAIN ADMISSIONS SECTION --- */
+.admissions {
+  background: #f8fafc;
+  color: var(--dark-blue);
+  padding: 6rem 2rem;
+}
+
+.admissions-header {
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+}
+
+.admissions-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.admissions-header p {
+  color: #475569;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* --- STEPS SECTION --- */
+.steps {
+  max-width: 1100px;
+  margin: 0 auto 3rem auto;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  padding: 0;
+}
+
+.step {
+  grid-column: span 6;
+  background: #ffffff;
+  border-radius: 1.2rem;
+  padding: 1.5rem 1.5rem 1.5rem 4.25rem;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(2, 20, 59, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:nth-child(odd) {
+  grid-column: 1 / span 6;
+}
+.step:nth-child(even) {
+  grid-column: 7 / span 6;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(2, 20, 59, 0.1);
+}
+
+.step-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--light-blue), var(--blue));
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  box-shadow: 0 6px 16px rgba(0, 80, 157, 0.35);
+  font-size: 1.05rem;
+}
+
+.step-content h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+  color: var(--blue);
+}
+
+.step-content p {
+  color: #334155;
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+/* --- REQUIREMENTS CARDS --- */
+.reqs {
+  max-width: 1100px;
+  margin: 2rem auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.reqs .req-card {
+  background: #ffffff;
+  border-radius: 1.1rem;
+  padding: 1.8rem 1.5rem;
+  box-shadow: 0 8px 24px rgba(2, 20, 59, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-align: left;
+}
+
+.reqs .req-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(2, 20, 59, 0.1);
+}
+
+.reqs .req-card i {
+  font-size: 1.4rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  color: var(--white);
+  background: var(--light-blue);
+}
+
+.reqs .req-card h4 {
+  color: var(--blue);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.reqs .req-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #334155;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* --- CTA (Call-to-Action) --- */
+.admissions-cta {
+  max-width: 1100px;
+  margin: 4rem auto 0 auto;
+  background: linear-gradient(135deg, var(--blue), var(--dark-blue));
+  color: var(--white);
+  border-radius: 1.2rem;
+  padding: 2rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1.5fr auto;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 59, 136, 0.25);
+}
+
+.admissions-cta .cta-text h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.25rem;
+}
+
+.admissions-cta .cta-text p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.98rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.75rem 1.2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-solid {
+  background: var(--white);
+  color: var(--blue);
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.25);
+}
+
+.btn-solid:hover {
+  transform: translateY(-2px);
+  background: var(--light-blue);
+  color: var(--white);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .step {
+    grid-column: span 12 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .admissions {
+    padding: 4rem 1.5rem;
+  }
+
+  .admissions-cta {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .step {
+    padding: 1.5rem;
+  }
+
+  .step-badge {
+    position: static;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ----------------------------------------------------- */
+/* --- MNHS ABOUT PAGE: CONSOLIDATED STYLESHEET CSS --- */
+/* ----------------------------------------------------- */
+
+/* Assuming these variables are defined elsewhere, e.g., in :root */
+/* :root {
+  --dark-blue: #003366;
+  --blue: #004d99;
+  --light-blue: #3366cc;
+} 
+*/
+
+/* ---------------- ABOUT PAGE HERO ---------------- */
+.about-hero {
+  position: relative;
+  min-height: 70vh;
+  background: url("../assets/images/campus-banner.webp") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+.about-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 40, 0.6);
+  backdrop-filter: blur(4px);
+}
+.about-hero-text {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 0 1rem;
+}
+.about-hero-text h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 1rem;
+}
+.about-hero-text p {
+  font-size: 1rem;
+  color: #f1f5f9;
+}
+
+/* ---------------- OVERVIEW (Our Story) ---------------- */
+.about-overview {
+  padding: 6rem 2rem;
+  background: #fff;
+}
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+.about-text {
+  flex: 1 1 50%;
+  color: var(--dark-blue);
+}
+.about-text h2 {
+  font-size: 2rem;
+  color: var(--blue);
+  margin-bottom: 1rem;
+}
+.about-text p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: #334155;
+}
+.about-img {
+  flex: 1 1 40%;
+}
+.about-img img {
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------------- MISSION, VISION, VALUES ---------------- */
+/* This section keeps the strong gradient background */
+.mission-vision {
+  background: linear-gradient(135deg, var(--blue), var(--dark-blue));
+  color: #fff;
+  text-align: center;
+  padding: 6rem 2rem;
+}
+.mv-header {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+.mv-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.mv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+.mv-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.mv-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+}
+.mv-card i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.mv-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* ---------------- ACADEMIC PROGRAMS & STUDENT LIFE (New Section) ---------------- */
+/* This gives the section a light background for visual separation */
+.programs-activities {
+    background-color: #f4f7fa; /* Light gray/blue background */
+    padding: 60px 5%; /* Vertical and horizontal padding */
+    text-align: center;
+}
+
+/* Sets up the grid layout for the program cards */
+.programs-grid {
+    display: grid;
+    /* Responsive columns at least 300px wide */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; 
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 2rem 0; /* Add padding inside the main section padding */
+}
+
+/* Styles the individual white cards */
+.program-card {
+    background: #ffffff; /* Explicitly white card background */
+    padding: 25px;
+    border-radius: 10px;
+    /* Adds a subtle shadow to make the card appear lifted */
+    box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+    height: 100%; /* Ensures uniform height */
+    text-align: left;
+}
+
+/* Visual feedback when the user hovers over a card */
+.program-card:hover {
+    transform: translateY(-5px); /* Lifts the card slightly */
+    box-shadow: 0 8px 15px rgba(0, 51, 102, 0.2); /* Stronger shadow */
+}
+
+/* Styles the icons inside the card headers */
+.program-card h3 i {
+    color: #003366; /* Primary school color */
+    margin-right: 10px;
+}
+
+
+/* ---------------- SCHOOL PROFILE TABLE (New Section) ---------------- */
+.school-profile-section {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+/* Styles the table container */
+.profile-table {
+    margin: 2rem auto;
+    border-collapse: collapse;
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Styles table header cells */
+.profile-table th {
+    padding: 15px;
+    text-align: left;
+    background-color: #003366; /* Dark blue header background */
+    color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Styles table data cells */
+.profile-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+/* ---------------- PRINCIPAL MESSAGE ---------------- */
+.principal-section {
+  background: linear-gradient(to right, #f8fafc, #e8eff9);
+  padding: 6rem 2rem;
+}
+.principal-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+.principal-wrapper img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.principal-content {
+  flex: 1 1 50%;
+  color: var(--dark-blue);
+}
+.principal-content h2 {
+  color: var(--blue);
+  margin-bottom: 1rem;
+}
+.principal-content p {
+  line-height: 1.8;
+  color: #334155;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+.principal-content h4 {
+  color: var(--light-blue);
+  font-weight: 600;
+}
+
+/* ---------------- MOBILE RESPONSIVENESS ---------------- */
+@media (max-width: 768px) {
+  .about-container, .principal-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   MENU BUTTON TOGGLING (Open/Close Visibility)
+========================================= */
+
+/* default: both visible on mobile */
+#openMenu,
+#closeMenu {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* hide open button when menu is active */
+body.menu-open #openMenu {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* show close button only when menu is active */
+#closeMenu {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body.menu-open #closeMenu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}

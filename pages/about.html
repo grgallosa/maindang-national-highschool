@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Maindang National High School</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../styles/main.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    /* --- LOCAL STYLES (page specific) --- */
+
+    .programs-activities {
+      background-color: #f4f7fa;
+      padding: 60px 0;
+    }
+
+    .mv-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 0 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .program-card {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+      text-align: left;
+    }
+
+    .program-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 51, 102, 0.2);
+    }
+
+    .program-card h3 i {
+      color: #003366;
+      margin-right: 10px;
+    }
+
+    .school-profile-section {
+      padding: 4rem 2rem;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    .profile-table {
+      margin: 2rem auto;
+      border-collapse: collapse;
+      width: 90%;
+      max-width: 800px;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-table th,
+    .profile-table td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .profile-table th {
+      background-color: #003366;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ UNIFIED HEADER (same as index.html) -->
+  <header>
+    <!-- Logo -->
+    <a href="../index.html" class="logo">
+      <img
+        src="../assets/images/MNHS-LOGO.png"
+        alt="Maindang National High School Logo"
+        width="80"
+        height="80"
+      />
+    </a>
+
+    <!-- Navigation -->
+    <nav id="navLinks" class="nav-links" aria-label="Main Navigation" role="navigation">
+      <button id="closeMenu" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <ul>
+        <li><a href="../index.html#about" class="active">About</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="../index.html#academics">Academics</a></li>
+        <li><a href="../index.html#blog">Blog</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hamburger -->
+    <button id="openMenu" aria-label="Open menu" aria-controls="navLinks" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="overlay"></div>
+    <div class="about-hero-text">
+      <h1>About Maindang National High School</h1>
+      <p>A Beacon of Learning on the Hilltop — Shaping Minds since 2002.</p>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="about-overview">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>Our Story</h2>
+        <p>
+          Founded in 2002, Maindang National High School (MNHS) stands as a pillar of public
+          secondary education in Cuartero, Capiz. Situated on a scenic hilltop in Barangay Maindang,
+          our school offers a peaceful and inspiring environment for learning.
+        </p>
+        <p>
+          As part of the Schools Division of Capiz (DepEd Region VI), MNHS empowers youth from our
+          rural community with quality education, discipline, and values that prepare them to face
+          the challenges of the modern world.
+        </p>
+      </div>
+      <div class="about-img">
+        <img src="../assets/images/campus.webp" alt="MNHS Hilltop Campus" />
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION, VISION, VALUES -->
+  <section class="mission-vision">
+    <div class="mv-header">
+      <h2>Our Core Philosophy</h2>
+      <p>
+        We are guided by our mission, vision, and values — the foundation of our school's identity.
+      </p>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card">
+        <i class="fa-solid fa-bullseye"></i>
+        <h3>Mission</h3>
+        <p>
+          To deliver quality, inclusive, and values-based education that fosters lifelong learning
+          and community service.
+        </p>
+      </div>
+      <div class="mv-card">
+        <i class="fa-solid fa-eye"></i>
+        <h3>Vision</h3>
+        <p>
+          A leading institution producing competent, compassionate, and responsible individuals for
+          a global society.
+        </p>
+      </div>
+      <div class="mv-card">
+        <i class="fa-solid fa-heart"></i>
+        <h3>Core Values</h3>
+        <ul>
+          <li>Integrity</li>
+          <li>Discipline</li>
+          <li>Excellence</li>
+          <li>Service</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section class="programs-activities">
+    <div class="mv-header">
+      <h2>Academic Programs & Student Life</h2>
+      <p>Beyond the classroom, MNHS fosters holistic growth and leadership.</p>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card">
+        <h3><i class="fa-solid fa-graduation-cap"></i> Academics</h3>
+        <p>
+          We offer a comprehensive K-12 curriculum, including Junior and Senior High School tracks.
+          Senior High School students participate in Work Immersion programs to gain real-world
+          experience.
+        </p>
+      </div>
+      <div class="program-card">
+        <h3><i class="fa-solid fa-users"></i> Organizations</h3>
+        <p>
+          From leadership in the Supreme Student Government to community outreach through YES-O and
+          GSP, we encourage student involvement and service.
+        </p>
+      </div>
+      <div class="program-card">
+        <h3><i class="fa-solid fa-trophy"></i> Sports</h3>
+        <p>
+          Our annual Intramurals, themed “Unite and Compete,” promote sportsmanship, camaraderie,
+          and physical fitness.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHOOL PROFILE -->
+  <section class="school-profile-section">
+    <h2>School Profile at a Glance</h2>
+    <table class="profile-table">
+      <tr><th>School Name</th><td>Maindang National High School</td></tr>
+      <tr><th>School ID</th><td>310804</td></tr>
+      <tr><th>Division</th><td>Capiz (Region VI - Western Visayas)</td></tr>
+      <tr><th>District</th><td>Cuartero</td></tr>
+      <tr><th>Location</th><td>Maindang, Cuartero, Capiz, 5811</td></tr>
+    </table>
+  </section>
+
+  <!-- PRINCIPAL -->
+  <section class="principal-section">
+    <div class="principal-wrapper">
+      <img src="../assets/images/mnhs-principal.webp" alt="Principal Coronacion D. Gadong" />
+      <div class="principal-content">
+        <h2>Message from the Principal</h2>
+        <p>
+          “At Maindang National High School, we are committed to modern education while honoring our
+          roots. Whether through our digital systems or on-campus programs, we aim to prepare every
+          student to succeed.”
+        </p>
+        <h4>— Principal Coronacion D. Gadong</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="../assets/images/MNHS-LOGO.png" alt="MNHS Logo" />
+        <h3>Maindang National High School</h3>
+        <p>Shaping Minds, Building Futures.<br />DepEd School ID: 310804</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/Maindang-National-High-School" target="_blank">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="admissions.html">Admissions</a></li>
+          <li><a href="../index.html#academics">Academics</a></li>
+          <li><a href="../index.html#blog">News</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i> Maindang, Cuartero, Capiz, 5811</li>
+          <li><i class="fa-solid fa-envelope"></i> maindangnhs@deped.gov.ph</li>
+          <li><i class="fa-solid fa-clock"></i> Mon–Fri: 8:00 AM – 5:00 PM</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Maindang National High School. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Unified Navigation Script -->
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,55 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maindang National Highschool</title>
-    <link rel="stylesheet" href="css-reset.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Meta & SEO -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Maindang National High School — Empowering learners through quality education and values-driven leadership." />
+  <meta name="author" content="Maindang National High School" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Maindang National High School" />
+  <meta property="og:description" content="Empowering learners through quality education and leadership." />
+  <meta property="og:image" content="assets/images/MNHS-LOGO.png" />
+  <meta property="og:url" content="https://mnhs.edu.ph/" />
+  <meta property="og:site_name" content="Maindang National High School" />
+  <meta property="og:type" content="website" />
+  <title>Maindang National High School</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/main.min.css" />
 </head>
+
 <body>
-    <section class="hero">
-        <header>
-            <img src="assets/images/MNHS-LOGO.png" alt="MNHS-LOGO">
-            <nav class="nav-links" id="navLinks">
-                <i class="fa-solid fa-xmark" onclick="hideMenu()" aria-hidden="true"></i>
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Admission</a></li>
-                    <li><a href="#">Academics</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <i class="fa-solid fa-bars" onclick="showMenu()" aria-hidden="true"></i>
-        </header>
-        <div class="text-box">
-            <h1>Maindang National Highschool</h1>
-            <p>Empowering learners through quality education and values-driven leadership.
-                Explore our programs, achievements,<br> and commitment to shaping a brighter future for every students.
-            </p>
-            <a class="hero-btn" href="#">Visit Us to know More</a>
+  <!-- HERO SECTION -->
+<section class="hero">
+  <header>
+    <!-- Logo -->
+    <a href="#" class="logo">
+      <img
+        src="assets/images/MNHS-LOGO.png"
+        alt="Maindang National High School Logo"
+        width="80"
+        height="80"
+      />
+    </a>
+
+    <!-- Navigation -->
+    <nav id="navLinks" class="nav-links" aria-label="Main Navigation" role="navigation">
+      <button id="closeMenu" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#academics">Academics</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="pages/admissions.html">Admissions</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hamburger -->
+    <button id="openMenu" aria-label="Open menu" aria-controls="navLinks" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- Hero Text -->
+  <div class="text-box">
+    <h1>Maindang National High School</h1>
+    <p>
+      Empowering learners through quality education and values-driven leadership.
+      Explore our programs, achievements, and commitment to shaping a brighter
+      future for every student.
+    </p>
+    <a class="hero-btn" href="#about">Learn More About Us</a>
+  </div>
+</section>
+
+  <!-- ✅ ABOUT SECTION -->
+  <section id="about" class="about">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="assets/images/campus.webp" alt="School Campus" loading="lazy" width="500" height="300" />
+      </div>
+      <div class="about-text">
+        <h2>About Maindang National High School</h2>
+        <p>
+          Maindang National High School is a proud institution dedicated to nurturing young minds through quality education, discipline, and values-based learning. We strive to empower every student to become responsible, innovative, and compassionate members of society.
+        </p>
+        <a href="pages/about.html" class="about-btn">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ ACADEMICS SECTION -->
+  <section id="academics" class="academics">
+    <div class="academics-header">
+      <h2>Academic Programs</h2>
+      <p>
+        Discover the diverse learning paths we offer to help students grow intellectually, socially, and emotionally. Each program is designed to prepare learners for a successful future.
+      </p>
+    </div>
+
+    <div class="academics-grid">
+      <div class="academic-item">
+        <div class="icon-box"><i class="fa-solid fa-flask"></i></div>
+        <h3>STEM</h3>
+        <p>Science, Technology, Engineering, and Mathematics — empowering future innovators and problem solvers.</p>
+      </div>
+
+      <div class="academic-item">
+        <div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
+        <h3>HUMSS</h3>
+        <p>Humanities and Social Sciences — developing analytical thinkers and communicators.</p>
+      </div>
+
+      <div class="academic-item">
+        <div class="icon-box"><i class="fa-solid fa-computer"></i></div>
+        <h3>ICT</h3>
+        <p>Information and Communication Technology — equipping students for the digital world.</p>
+      </div>
+
+      <div class="academic-item">
+        <div class="icon-box"><i class="fa-solid fa-gears"></i></div>
+        <h3>TVL</h3>
+        <p>Technical-Vocational-Livelihood — providing practical, hands-on training for future professionals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ ACHIEVEMENTS SECTION -->
+  <section class="achievements">
+    <div class="achievements-header">
+      <h2>Student Life & Achievements</h2>
+      <p>We take pride in our students’ excellence, creativity, and dedication. From academic success to community involvement, Maindang National High School celebrates every achievement.</p>
+    </div>
+
+    <div class="achievements-grid">
+      <div class="achievement-card">
+        <img src="assets/images/academic.webp" alt="Academic Excellence" loading="lazy" width="300" height="200" />
+        <div class="achievement-overlay">
+          <h3>Academic Excellence</h3>
+          <p>Recognizing top-performing students for outstanding achievements.</p>
         </div>
-    </section>
-<!-- Coming Soon -->
+      </div>
 
-    <!-- Toggle Menu Function -->
-     <script>
-  var navLinks = document.getElementById("navLinks");
+      <div class="achievement-card">
+        <img src="assets/images/science.webp" alt="Science Fair" loading="lazy" width="300" height="200" />
+        <div class="achievement-overlay">
+          <h3>Science Fair Winners</h3>
+          <p>Students innovate and explore the wonders of science and technology.</p>
+        </div>
+      </div>
 
-  function showMenu(){
-    navLinks.classList.add("nav-open");
-  }
+      <div class="achievement-card">
+        <img src="assets/images/sports.webp" alt="Sportsfest" loading="lazy" width="300" height="200" />
+        <div class="achievement-overlay">
+          <h3>Sportsfest Champions</h3>
+          <p>Building teamwork and sportsmanship through friendly competition.</p>
+        </div>
+      </div>
 
-  function hideMenu(){
-    navLinks.classList.remove("nav-open");
-  }
-     </script>
+      <div class="achievement-card">
+        <img src="assets/images/outreach.webp" alt="Community Outreach" loading="lazy" width="300" height="200" />
+        <div class="achievement-overlay">
+          <h3>Community Outreach</h3>
+          <p>Empowering students to make a difference beyond the classroom.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ BLOG SECTION -->
+  <section id="blog" class="blog">
+    <div class="blog-header">
+      <h2>School News & Updates</h2>
+      <p>Stay up to date with the latest events, announcements, and stories from our school community.</p>
+    </div>
+
+    <div class="blog-grid">
+      <article class="blog-card">
+        <div class="blog-image">
+          <img src="assets/images/immersion.webp" alt="Graduation Ceremony 2025" loading="lazy" width="400" height="250" />
+        </div>
+        <div class="blog-content">
+          <div class="blog-meta">
+            <span><i class="fa-solid fa-calendar"></i> November 15, 2025</span>
+            <span><i class="fa-solid fa-user"></i> MNHS Admin</span>
+          </div>
+          <h3>Graduation Ceremony 2025: A Celebration of Excellence</h3>
+          <p>Congratulations to our outstanding graduates! A day filled with pride, memories, and a bright vision for the future.</p>
+          <a href="#" class="btn btn-outline">Read More</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-image">
+          <img src="assets/images/girls-scouts.webp" alt="Science Fair 2025" loading="lazy" width="400" height="250" />
+        </div>
+        <div class="blog-content">
+          <div class="blog-meta">
+            <span><i class="fa-solid fa-calendar"></i> October 20, 2025</span>
+            <span><i class="fa-solid fa-user"></i> Science Dept.</span>
+          </div>
+          <h3>MNHS Science Fair Sparks Innovation and Discovery</h3>
+          <p>Students showcased their creative inventions and experiments during the annual Science Fair.</p>
+          <a href="#" class="btn btn-outline">Read More</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-image">
+          <img src="assets/images/wvraa.webp" alt="Community Outreach 2025" loading="lazy" width="400" height="250" />
+        </div>
+        <div class="blog-content">
+          <div class="blog-meta">
+            <span><i class="fa-solid fa-calendar"></i> September 10, 2025</span>
+            <span><i class="fa-solid fa-user"></i> Student Council</span>
+          </div>
+          <h3>MNHS Extends a Helping Hand in Community Outreach</h3>
+          <p>Our students gave back through clean-up drives and donation programs, embodying true Bayanihan spirit.</p>
+          <a href="#" class="btn btn-outline">Read More</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ✅ CONTACT SECTION -->
+  <section id="contact" class="contact">
+    <div class="contact-header">
+      <h2>Contact Us</h2>
+      <p>We’d love to hear from you. Get in touch for inquiries, admissions, or collaborations.</p>
+    </div>
+
+    <div class="contact-container">
+      <div class="contact-cards">
+        <div class="contact-card">
+          <i class="fa-solid fa-location-dot"></i>
+          <h3>Address</h3>
+          <p>Maindang National High School<br>Maindang, Philippines</p>
+        </div>
+
+        <div class="contact-card">
+          <i class="fa-solid fa-envelope"></i>
+          <h3>Email</h3>
+          <p><a href="mailto:registrar@mnhs.edu.ph">registrar@mnhs.edu.ph</a></p>
+        </div>
+
+        <div class="contact-card">
+          <i class="fa-solid fa-phone"></i>
+          <h3>Phone</h3>
+          <p><a href="tel:+639000000000">(+63) 900 000 0000</a></p>
+        </div>
+      </div>
+
+      <form id="contactForm" class="contact-form" novalidate>
+        <h3>Send us a message</h3>
+        <label for="name">Your Name</label>
+        <input id="name" name="name" type="text" placeholder="Your Name" required />
+
+        <label for="email">Your Email</label>
+        <input id="email" name="email" type="email" placeholder="Your Email" required />
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your Message..." required></textarea>
+
+        <button type="submit" class="btn btn-solid">
+          <i class="fa-solid fa-paper-plane"></i> Send Message
+        </button>
+
+        <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div class="contact-map">
+      <iframe title="Maindang National High School Map" src="https://www.google.com/maps?q=Maindang%20Philippines&output=embed" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- ✅ FOOTER -->
+  <footer class="footer" role="contentinfo" aria-label="Footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="assets/images/MNHS-LOGO.png" alt="MNHS Logo" width="80" height="80" />
+        <h3>Maindang National High School</h3>
+        <p>Empowering learners through quality education, discipline, and values-driven leadership.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="pages/admission.html">Admissions</a></li>
+          <li><a href="#academics">Academics</a></li>
+          <li><a href="#blog">News & Updates</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <address class="footer-contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i> Maindang, Philippines</li>
+          <li><i class="fa-solid fa-phone"></i> (+63) 900 000 0000</li>
+          <li><i class="fa-solid fa-envelope"></i> registrar@mnhs.edu.ph</li>
+          <li><i class="fa-solid fa-clock"></i> Mon–Fri: 8:00 AM – 4:00 PM</li>
+        </ul>
+      </address>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Maindang National High School. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!--  Scripts -->
+  <script>
+    // Dynamic Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Menu toggle
+    const navLinks = document.getElementById("navLinks");
+    const openMenu = document.getElementById("openMenu");
+    const closeMenu = document.getElementById("closeMenu");
+
+    openMenu.addEventListener("click", () => {
+      navLinks.classList.add("active");
+      openMenu.setAttribute("aria-expanded", "true");
+    });
+
+    closeMenu.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      openMenu.setAttribute("aria-expanded", "false");
+    });
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
