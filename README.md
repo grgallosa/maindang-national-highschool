@@ -5,7 +5,7 @@
 <h1 align="center">Maindang National High School Website</h1>
 
 <p align="center">
-  <a href="https://your-username.github.io/your-repo-name/">
+  <a href="[https://your-username.github.io/your-repo-name/](https://github.com/grgallosa/maindang-national-highschool.git)">
     <img src="https://img.shields.io/badge/GitHub%20Pages-Deployed-brightgreen?style=for-the-badge&logo=github">
   </a>
 </p>
